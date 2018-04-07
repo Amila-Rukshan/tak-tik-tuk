@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-offset-3">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Sell an item <img src="images/sell.png"></h1>
+          <p>Welcome <font color="#128c72" strong><strong>Seller</strong></font>! Let's post an ad.In Here you are going to sell item in <strong>Online marketplace</strong></p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form action="/post-item" method="post" id="sell-item-form">
+            <div class="form-group">
+              <label for="category">Category</label>
+              <div id="gh-cat-box" class=""><select name="category" title="Select a category " class="gh-sb gh-sprRetina" size="1" id="gh-cat" name="_sacat"><option value="All Categories" selected="selected">All Categories</option><optgroup label="----------------------------------------"></optgroup><option value="Antiques">Antiques</option>
+                <option value="Art">Art</option><option value="Baby">Baby</option><option value="Books">Books</option><option value="Business &amp; Industrial">Business &amp; Industrial</option><option value="Cameras &amp; Photo">Cameras &amp; Photo</option>
+                <option value="Cell Phones &amp; Accessories">Cell Phones &amp; Accessories</option><option value="Clothing, Shoes &amp; Accessories">Clothing, Shoes &amp; Accessories</option><option value="Coins &amp; Paper Money">Coins &amp; Paper Money</option><option value="Collectibles">Collectibles</option><option value="Computers/Tablets &amp; Networking">Computers/Tablets &amp; Networking</option>
+                <option value="Consumer Electronics">Consumer Electronics</option><option value="Crafts">Crafts</option><option value="Dolls &amp; Bears">Dolls &amp; Bears</option><option value="DVDs &amp; Movies">DVDs &amp; Movies</option><option value="Entertainment Memorabilia">Entertainment Memorabilia</option><option value="Gift Cards &amp; Coupons">Gift Cards &amp; Coupons</option>
+                <option value="Health &amp; Beauty">Health &amp; Beauty</option><option value="Home &amp; Garden">Home &amp; Garden</option><option value="Jewelry &amp; Watches">Jewelry &amp; Watches</option><option value="Music">Music</option><option value="Musical Instruments &amp; Gear">Musical Instruments &amp; Gear</option>
+                <option value="Pet Supplies">Pet Supplies</option><option value="Pottery &amp; Glass">Pottery &amp; Glass</option><option value="Real Estate">Real Estate</option><option value="Specialty Services">Specialty Services</option><option value="Sporting Goods">Sporting Goods</option><option value="Sports Mem, Cards &amp; Fan Shop">Sports Mem, Cards &amp; Fan Shop</option>
+                <option value="Stamps">Stamps</option><option value="Toys &amp; Hobbies">Toys &amp; Hobbies</option><option value="Travel">Travel</option><option value="Video Games &amp; Consoles">Video Games &amp; Consoles</option><option value="Everything Else">Everything Else</option></select></div>
+            </div>
+            <div class="form-group">
+              <label for="name">Item name</label>
+              <input type="text" id="name" name="name"  class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="imagepath">Add a photo (URL)</label>
+              <input type="text" id="imagepath" name="imagepath" class="form-control" required>
+            </div>
+            <div class="ui-field is-normal field-description is-description">
+              <label for="description">Description</label>
+              <!--<p data-max-chars="5000" class="char-counter"><span class="current">0</span><span class="divider">/</span><span class="max">5000</span></p>-->
+
+              <!--<input type="text" id="description" name="description" class="form-control">-->
+              <textarea id="description" name="description" class="ui-textarea" placeholder="Description" rows="4" cols="90" required>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</textarea>
+            </div>
+            <div class="form-group">
+              <label for="price">Price(Rs)</label>
+              <input type="number" id="price" name="price" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Post Item</button>
+          </form>
+        </div>
+      </div>
+      <p>By posting this item, you agree to the Terms and Conditions of this site.</p>
+    </div>
+  </div>
+</div>

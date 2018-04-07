@@ -1,0 +1,37 @@
+<div class="row" id="report" name="report">
+  <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+      <div class="panel-group">
+        <div class="panel panel-danger">
+          <div class="panel-body"><h3><font color="darkred">Is there something wrong with this ad?</font></h3>
+          <p>We're constantly working hard to assure that our ads meet high standards and we are very grateful for any kind of feedback from our users.</p></div>
+        </div>
+      <div class="panel panel-danger">
+        <div class="panel-body">
+          <form action="/report-ad" method="post" id="checkout-form">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="name">Reason</label>
+                  <select id="report-reason" name="reason" class="ui-select"><option value="select" selected="selected">-- Select a reason --</option><option value="unavailable">Item sold/unavailable</option><option value="fraud">Fraud</option><option value="duplicate">Duplicate</option><option value="spam">Spam</option><option value="category">Wrong category</option><option value="offensive">Offensive</option><option value="other">Other</option></select>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="email">Your Email</label>
+                  <input type="text" id="email" class="form-control" required name="email" pettern="[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}\@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}(\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" class="ui-textarea" placeholder="Message" rows="4" cols="69" required></textarea>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color:darkred">Send report</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

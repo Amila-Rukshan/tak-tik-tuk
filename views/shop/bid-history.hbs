@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-offset-3">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Bid history</h3>
+          <hr>
+          <table>
+            <tr>
+              <th>Bidder</th>
+              <th>Bid Amount</th>
+              <th>Bid Time</th>
+            </tr>
+            {{#each bidHistory}}
+            <tr>
+              <td>{{this.bidder}}</td>
+              <td>Rs:{{this.bid}}</td>
+              <td>{{this.time}}</td>
+            </tr>
+            {{/each}}
+          </div>
+        </div>
+      </divs>
+    </table>
+    <p></p>
+    <p>If two people bid the same amount, the first bid has priority. Also, you can only retract your bid under certain circumstances.</p>
+  </div>
+</div>

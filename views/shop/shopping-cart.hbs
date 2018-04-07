@@ -1,0 +1,54 @@
+{{# if products}}
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <h1>My <font color="#128c72">TAK.tik.TUK</font> Shopping Cart</h1>
+        <hr>
+        {{#if login}}
+        {{else}}
+          <p>You're not currently signed in. <a href="/user/signin">Sign in</a> to save these items or see your saved items.</p>
+        {{/if}}
+        <ul class="list-group-item">
+          {{# each products}}
+              <li class="list-group-item">
+                <span class="badge">{{this.qty}}</span>
+                <strong>{{this.item.title}}</strong>
+                <span class="label label-success">RS:{{this.price}}</span>
+                <div class ="btn-group">
+                  <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action<span class="c aret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="/reduce/{{this.item._id}}">Reduce by one</a></li>
+                    <li><a href="/remove/{{this.item._id}}">Remove all</a></li>
+                </div>
+              </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <p> </p>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <strong>Total:{{totalPrice}} </strong>
+      </div>
+    </div>
+      <p> </p>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <a href="/" type="button" class="btn btn-default" >Continue shopping</a>
+
+        <a href="/checkout" type="button" class="btn btn-primary">Proceed to checkout</a>
+      </div>
+    </div>
+{{else}}
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-md-offset-0.3 col-sm-offset-0">
+          <h2>Your shopping cart is empty <i class="fa fa-meh-o" aria-hidden="true"></i></h2>
+          <hr>
+          <h3>But it doesn't have to be. <i class="fa fa-smile-o" aria-hidden="true"></i></h3>
+          <p>There are lots of great deals and one-of-a-kind items just waiting for you.
+            Start shopping, and look for the "Add to Shopping cart" button. You can add several items to your cart from different sellers and pay for them all at once.</p>
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+              <img  src = "/images/add-to-cart.gif" align="center" >
+            </div>
+      </div>
+    </div>
+{{/if}}

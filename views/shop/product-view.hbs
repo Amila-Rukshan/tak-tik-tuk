@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><strong>{{this.product.title}}</strong></div>
+        <ul class="list-group">
+          <li class="list-group-item"><p>posted {{this.product.datetime}} </p></li>
+        </ul>
+        <div class="panel-body">
+          <div class="person1" style="float:left; display:inline-block; ">
+             <span style="float:left;width: 50%;">
+                 <img src="{{this.product.imagePath}}"
+                  width="250"/>
+             </span>
+             <span style="float:right;width: 50%;">
+                <p style="float:right; display:block;">{{this.product.description}}</p>
+                <p></p>
+                <a data-toggle="modal" data-target="#ReportModal" href="#myModal">Report this ad</a>
+                <div id="ReportModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><h3><font color="darkred">Is there something wrong with this ad?</font></h3>
+                        <p>We're constantly working hard to assure that our ads meet high standards and we are very grateful for any kind of feedback from our users.</p>
+                      </h4>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/report-ad/{{this.product._id}}" method="post" id="checkout-form">
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <div class="form-group">
+                                <label for="name">Reason</label>
+                                <select id="report-reason" name="reason" class="ui-select"><option value="select" selected="selected">-- Select a reason --</option><option value="unavailable">Item sold/unavailable</option><option value="fraud">Fraud</option><option value="duplicate">Duplicate</option><option value="spam">Spam</option><option value="category">Wrong category</option><option value="offensive">Offensive</option><option value="other">Other</option></select>
+                              </div>
+                            </div>
+                            <div class="col-xs-12">
+                              <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="text" id="email" class="form-control" required name="email" pettern="[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}\@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}(\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+">
+                              </div>
+                            </div>
+                            <div class="col-xs-12">
+                              <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" class="ui-textarea" placeholder="Message" rows="4" cols="69" required></textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="submit" class="btn btn-primary" style="background-color:darkred">Send report</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </span>
+            </div>
+        </div>
+        <!-- List group -->
+        <ul class="list-group">
+          <li class="list-group-item"><div class="ui-price-tag"><strong>Rs:{{this.product.price}}</strong></div></li>
+          <li class="list-group-item"><a href="/" class="btn btn-default pull-left" role="button">Continue Shopping</a><a href="/add-to-cart/{{this.product._id}}" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a></li>
+        </ul>
+      </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+      <p></p>
+      <p></p>
+    </div>
+</div>

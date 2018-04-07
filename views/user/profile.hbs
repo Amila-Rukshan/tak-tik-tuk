@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-offset-3">
+    <strong>You are Signed in as <font color="blue">{{this.user.email}}</font></strong>
+    <h1>My <font color="#128c72">TAK.tik.TUK</font> Profile</h1>
+    <hr>
+    <h1>My Orders </h1>
+    <hr>
+  </div>
+  <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-offset-3">
+    {{# each orders}}
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <ul class="list-group">
+              {{#each this.items}}
+                <li class="list-group-item">
+                  <img src="{{this.item.imagePath}}" width="50"/>
+                  <span class="badge">RS:{{this.price}}</span>
+                  {{this.item.title}} | {{this.qty}} Units
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <strong>Total Price: RS:{{this.cart.totalPrice}}</strong>
+          </div>
+        </div>
+    {{/each}}
+  </div>
+
+  <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-offset-3">
+    <hr>
+    <h1>My Selling Items </h1>
+    <hr>
+  </div>
+  <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-offset-3">
+    {{# each products}}
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">{{this.title}}</div>
+        <div class="panel-body">
+          <div class="person1" style="float:left; display:inline-block; ">
+             <span style="float:left;width: 10%;">
+                 <img src="{{this.imagePath}}"
+                  width="50"/>
+             </span>
+             <span style="float:right;width: 90%;">
+                <p style="float:right; display:block;">{{this.description}}</p>
+              </span>
+            </div>
+        </div>
+        <!-- List group -->
+        <ul class="list-group">
+          <li class="list-group-item"><span class="badge">RS:{{this.price}}</span></li>
+        </ul>
+      </div>
+    {{/each}}
+  </div>
+</div>

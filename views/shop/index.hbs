@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+      <!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var currentDate = new Date();
+currentDate.setDate(currentDate.getDate()+1);
+var countDownDate = currentDate.getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+      <div id="success" class="alert alert-success{{#if noMessages}}hidden{{/if}}">
+        {{successMsg}}
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-12 col-md-offset-0 col-sm-offset-3">
+      <h4><strong><hr border="solid 2px dimgrey">Buy It Now <img src="images/buy-now.png" width="60" >
+        <hr></strong></h4>
+    </div>
+</div>
+
+{{# each products}}
+  <div class="row">
+    {{# each this}}
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail" href="/user/signin">
+            <a href="/product-view/{{this._id}}">
+              <img src="{{ this.imagePath }}" alt="...">
+            </a>
+            <div class="caption">
+              <hr>
+              <a href="/product-view/{{this._id}}">
+              <h4>{{ this.title }}</h4></a>
+              <p class="datetime"><font color="gray">{{ this.datetime }}, {{this.category}}</font></p>
+              <div class="clearfix">
+                <div class="price pull-left">Rs:{{ this.price }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    {{/each}}
+  </div>
+{{/each}}
+
+<div class="row">
+    <div class="col-sm-6 col-md-12 col-md-offset-0 col-sm-offset-3">
+      <h4><strong><hr border="solid 2px dimgrey">Auction <img src="images/auction-hammer.png" width="60"><hr></strong></h4>
+    </div>
+</div>
+
+{{# each auctionProducts}}
+  <div class="row">
+    {{# each this}}
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <a href="/auction-product-view/{{this._id}}"><img src="{{ this.imagePath }}" alt="..."></a>
+            <div class="caption">
+              <h4><a href="/auction-product-view/{{this._id}}">{{ this.title }}</a></h4>
+              <p class="datetime"><font color="gray">{{this.category}}</font></p>
+              <div class="clearfix">
+                <div class="price pull-left">Rs:{{ this.price }}</div>
+              </div>
+              <div class="clearfix">
+                <h5>{{this.days}} days left</h5>
+              </div>
+              <div class="clearfix">
+                <p><font color="gray">{{this.bids}} bids </font></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    {{/each}}
+  </div>
+{{/each}}
